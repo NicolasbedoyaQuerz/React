@@ -1,37 +1,24 @@
-import "./App.css";
-import Button from "./components/Button";
-import CardSong from "./components/CardSong";
+import './App.css'
+import {useState} from 'react'
 
 function App() {
-  /*
-  function addNumbers(a, b){
-    return a + b
-  }
+  const [counter, setCounter] = useState(0);
 
-  addNumber( 5, 10 )
-  addNuumber( 100, 200 )
-*/
+  const incrementLike = () => {
+    setCounter(counter + 1);
+  };
+
+  const decrementLike = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  };
+
   return (
     <div className="App">
-      <h1> {100 + 100} </h1>
-      <Button propiedad="Este es el valor de la propiedad" texto="Cancelar" />
-      <Button texto="Aceptar" />
-      <Button texto="Iniciar sesión" />
-
-      <CardSong
-        title="Storytime"
-        album="Imaginaerum"
-        band="Nightwish"
-        release="2011"
-        genre="Metal sinfonico"
-      />
-      <CardSong
-        title="Flight of Icarus"
-        album="Piece of mind"
-        band="Iron Maiden"
-        release="1983"
-        genre="Heavy Metal"
-      />
+      <h1>Total de likes: {counter} </h1>
+      <button onClick={incrementLike}>Like</button>
+      <button onClick={decrementLike}>Dislike</button>
     </div>
   );
 }

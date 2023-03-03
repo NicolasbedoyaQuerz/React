@@ -1,0 +1,14 @@
+.App {
+    padding: 30px;
+    text-align: center;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+
+.character-card {
+    padding: 20px;
+    border-radius: 10%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}

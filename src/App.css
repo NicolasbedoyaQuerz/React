@@ -1,0 +1,22 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+  }
+  
+  .alive {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .dead {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .unknown {
+    background-color: #ccc;
+  }
+  

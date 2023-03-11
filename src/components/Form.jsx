@@ -41,7 +41,16 @@ const Form = () => {
     }
     console.log(data);
 
+    reset()
   }; 
+
+  const reset = () => {
+    setUserName('')
+    setUserAge('')
+    setUserEmail('')
+    setIsTermsAccepted(false)
+     setSelectedGender('')
+  }
 
   return (
     <form onSubmit={ e => handleSubmit(e)}>

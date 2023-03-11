@@ -9,12 +9,14 @@ const ToDoForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const todo = {
-      id: id,
+      id: Date.now(),
       title: title,
       description: description,
       isCompleted: isCompleted,
     };
     console.log(todo);
+
+    reset()
   };
 
 
@@ -30,6 +32,14 @@ const ToDoForm = () => {
     setIsCompleted(event.target.checked);
   };
 
+  
+  const reset = () => {
+    setTitle('')
+    setDescription('')
+    setIsCompleted(false)
+
+    alert('Formulario enviado!')
+  }
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "center", border: "0.5px solid black", padding: "20px", borderRadius: "5px", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)", width: "80%", margin: "0 auto" }}>
       <div>

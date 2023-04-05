@@ -1,19 +1,15 @@
-import {useState} from 'react'
-const Bulb = () => {
 
-    const [ isOn, setIsOn ] = useState(false)
+const Foco = ({onTodos, dataSalida}) => {
+
+    // const [ isVisible, setIsVisible] = useState(true)
+
 
     return (
-        <div>
-            <div 
-            className="lightbulb"
-            style={{ backgroundColor : isOn ? "yellow" : "grey"   }}
-            ></div>
-
-            <button onClick={ () => setIsOn(!isOn) }>on/off</button>
+        <div >
+            <h1 className='foco'  style={{ backgroundColor : onTodos ? 'grey' : 'yellow' }}></h1>
+            <button className="btn" onClick={dataSalida}>On / Off</button>
         </div>
     );
-}
+};
 
-export default Bulb;
-
+export default Foco;

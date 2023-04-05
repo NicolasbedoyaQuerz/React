@@ -1,5 +1,24 @@
-.App {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.foco {
+  border-radius: 50%;
+  box-shadow: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+  margin: auto;
+}
+
+.btn {
+  width: 70px;
+  height: 40px;
+  margin-left: 47.4%;
+  background-position: center;
+  text-align: center;
+  justify-content: center;
+  background-size: cover;
+}

@@ -1,64 +1,60 @@
+
 import "./App.css";
-import axios from "axios";
+import axios from 'axios'
 import BreakingBad from "./components/BreakingBad";
-import Emojis from "./components/Emojis";
+import Emoji from "./components/Emoji";
 
 function App() {  
+    
+/*
+
+//axios devuelve la respuesta del servidor en formato de promesa
+// data es opcional(post, put, patch)
+axios.metodoHTTP('url', data)
+  .then((resp) => console.log(resp))
+  .catch((error) => console.log(error))
+
+
+  promesa => es algo que en algun momento lo voy a recibir pero no en el momento sino en el futuro
+  objeto que representa la terminacion o fracaso de una operacion asincrona
+
+  - pendiente (seguimos esperando la resolucion)
+  - settled (ya sabemos que ocurrio con la promesa)
+  - fulfill (se resolvio con exito)
+  - rejected (no se resolvio con exito)
   
+  asincronia => desfases temporales
 
- /*
-  //Axios devuelve la rspuesta del servidor en formato de promesa
-  
-  //data es opcional (post, put, patch)
-  
-  axios.metodoHTTP( 'url', data ) 
-    .then( (resp) => console.log(resp) )
-    .catch( (error) => console.log(error) )
-  
-  
-  */
+  .then y .catch (metodos de promesas)
 
-  //PROMESAS: Objeto que representa la terminacion o fracaso de una operacion asincrona
-  //  -Pendiente : Seguimos esperando la resolucion
-  //  -Settled : Ya sabemos que ocurrio con la promesa
-  //      -Fulfill : Resolvio con exito
-  //      -Rejected : Resolvio si exito, falló
-  //ASINCRONIA: Desfases temporales
-
-
-  // .then() y .catch() (Metodos de promesas)
- 
-  /*
-  const functionPromisa = new Promise( (resolve, reject) => {
-    //Codigo de la promesa
-
-    if(condicionQueDecidiraSiLaPromesaSeCumpleONo){
-      //Si se cumple
-      resolve("Valor que se devuelve de la promesa al cumplirse")
-    }else{
-      //No se cumple, es rechazada
-      reject( "Error que hizo que la promesa fallara" )
-    }
-
+  const funtionpromesa = new Promesa( (resolve, reject) => {
+    //codigo de la promesa
+   if(CondicionQueDemuestraSiLaPromesaSeCumpleONo){
+     //si la promesa se cumple
+     resolve('valor que se devuelve de la promesa al cumplirse')
+   }else {
+     //si la promesa no se cumple
+     reject('error que no permitio o que hizo la promesa fallara')
+   }
   } )
-  */
-  
-  /*
-  promesa
-    .then( (res) => {
-      //El then se ejecuta cuando la promesa es resuelta con exito
-      console.log(resp) // "Valor que se devuelve de la promesa al cumplirse"
-    })
-    .catch( (error) => {
-      //El catch se ejecuta cuando la promesa es rechazada
-      console.log(error) //"Error que hizo que la promesa fallara"
-    } )
-  */
 
-  return (
+  
+  Promesa
+    .then((res) => {
+      console.log(res); //valor que se devuleve de la promesa al cumplirse
+    })
+    .catch((error) => {
+      //el catch se ejecuta cuando la promesa es rechazada
+      console.log(error);// error qeu hizo que la promesa fallara
+    })
+  */ 
+
+
+
+ return (
     <div className="App">
       <BreakingBad/>
-      <Emojis/>
+      <Emoji/>
     </div>
   );
 }

@@ -1,51 +1,79 @@
 import "./App.css";
-import { useState, useEffect } from "react";
-import Country from './components/Country'
-import Loader from './components/Loader'
+import { useEffect, useState } from "react";
+import Country from "./components/Country";
+import Loader from "./components/Loader";
 
 function App() {  
- /* 
-  if(100 === 100){
-  return (
-    <div className="App">
-      <h1>la condicion se cumple</h1>
-    </div>
-  );
-  } else {
-    return (
-      <div className="App">
-        <h1>la condicion No se cumple</h1>
-      </div>
-    );
-  }*/
 
-  // const [isVisible, setIsVisible] = useState(true)
+  // true && false -> false
 
-  const [isLoading, setIsLoading] = useState(true)
+  // && -> operacion de cortocircuito
+  // va a devolver el prier dato que sea falsy.
+  // en caso de que ninguno sea falsy, va a devolver el ultimo
+  // 100 && null -> null
+  // undefined && 'hola mundo' -> undefined
+  // 100 && 200 -> 200
+  /*
+  console.log( 100 && null );
+  console.log( undefined && 'hola mundo!');
+  console.log( 100 && 200 );
+  */
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    },2000)
-  },[])
+  // renderizados condicionales
+  // funcional
+      // if - else
 
-  return (
-  /*  <div className="App">
-      {
-        100 === 100 ? <h1>se cumple</h1> : <h1>no se cumple</h1>
+      // visual 
+        //ternarios 
+        //
+/*
+      if( 200 === 200){
+        return (
+          <div className="App">
+            <h1>la condicion se cumple</h1>
+          </div> 
+        );
+      }else {
+
+        
+          return (
+              <div className="App">
+                <h1>la condicion no se cumple</h1>
+              </div> 
+            );
       }
-      {
-        // 'hola mundo!'
-        isVisible && <h1>este jx es visible</h1>
-      }
-      <button onClick={ () => setIsVisible(!isVisible)}>mostar / ocultar</button>
-    </div>*/
+ */     
+      const [isVisible, setIsVisible] = useState(true)
+      const [isLoading, setIsLoading] = useState(true)
 
-      <div className="App">
-        { isLoading && <Loader/>}
-        <Country name="colombia" />
-      </div>
-    );
+      useEffect (() => {
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 2000);
+        
+        
+      }, []);
+      
+      return (
+        <div className="App">
+          {
+            isLoading &&  <Loader/>
+          }
+          {
+            isVisible ? <h1>se cumple</h1> : <h1>no se cumple</h1>
+          }
+          {
+            //false && jsx  -> false
+            // true && jsx -> true
+            isVisible && <h1>este jsx es visible</h1>
+          }
+
+          <button onClick={ () => setIsVisible(!isVisible)}>mostrar y ocultar</button>
+          <Country/>
+         
+          
+        </div> 
+      );
   }
 
 export default App;

@@ -7,7 +7,7 @@ function Country({ name }) {
 
   useEffect(() => {
     axios
-      .get(`https://restcountries.com/v2/name/${name}`)
+      .get(`https://restcountries.com/v2/name/colombia`)
       .then((response) => {
         setCountry(response.data[0]);
       })

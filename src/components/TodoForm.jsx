@@ -1,40 +1,81 @@
-import { useState } from 'react';
-import Form from './Form';
+import { useForm } from "react-hook-form";
 
-const TodoList = () => {
-  const [todos, setTodos] = useState([
-    {
-      title: "Estudiar React",
-      description: "Estudiar useState y useEffect",
-      isCompleted: false,
-      id: 1
-    },
-    {
-      title: "Entregable 3",
-      description: "Completar el entregable 3 y subirlo al classcenter",
-      isCompleted: false,
-      id: 2
+const TodoForm = () => {
+
+    const {register, formState:{errors}, reset, handleSubmit} = useForm()
+
+    const submit = (data) => {
+        console.log(data);
+
+        emptyForm()
     }
-  ]);
 
-  const createTodo = (todo) => {
-    setTodos([...todos, todo]);
-  };
+    const fillForm = () => {
+        reset(
+            {
+                title: 'hola mundo!',
+                description: 'hola mundooooo!',
+                compled: (true)
+            }
+        )
+    }
 
-  return (
-    <div>
-      <h1>Lista de Tareas</h1>
-      <Form createTodo={createTodo} />
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <input type="checkbox" checked={todo.isCompleted} readOnly />
-            {todo.title}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    const emptyForm = () => {
+        reset(
+            {
+                title: '',
+                description: '',
+                compled: (false)
+            }
+        )
+    }
+
+    return (
+        <div className="card">
+        <form onSubmit={handleSubmit(submit)} >
+            <h1>NUEVA TAREA</h1>
+            <div>
+                <label htmlFor="title"> Titulo</label>
+                <input
+                type="text" 
+                name="title" 
+                id="title" 
+                placeholder="something"
+                {...register('title', {required: true})}
+                />
+                {errors.title?.type === 'required' && <p role="alert"  style={{ color: 'tomato' }}>se requiere un titulo</p>}
+
+            </div>
+            <div>
+                <label htmlFor="description"> Descripcion </label>
+                <input
+                type="text" 
+                name="description" 
+                id="description" 
+                placeholder="escribe aqui"
+                size={30}
+                style={{ width: "300px", height:'100px' }}
+                {...register('description', {required: true})}
+                />
+                 {errors.description?.type === 'required' && <p role="alert"  style={{ color: 'tomato' }}>se requiere una Descripcion</p>}
+            </div>
+            <div>
+                <label htmlFor="compled"> Completado </label>
+                <input
+                type="checkbox" 
+                name="compled" 
+                id="compled" 
+                {...register('compled', {required: true})}    
+                />
+                 {errors.compled?.type === 'required' && <p role="alert"  style={{ color: 'tomato' }}>se requiere este campo </p>}
+            </div>
+            <button type="submit"> Enviar Formulario </button>
+        </form>
+
+        <button onClick={fillForm}> llenar Formulario</button>.
+        {/* <button  onClick={emptyForm}> Borrar Formulario </button> */}
+        </div>
+    );
 };
 
-export default TodoList;
+export default TodoForm;

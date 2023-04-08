@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
 
-const TodoForm = () => {
+const TodoForm = ({createUser}) => {
 
     const {register, formState:{errors}, reset, handleSubmit} = useForm()
 
     const submit = (data) => {
-        console.log(data);
+        data.id = Date.now()
+        // console.log(data);
 
+        createUser(data)
         emptyForm()
     }
 
@@ -15,7 +17,7 @@ const TodoForm = () => {
             {
                 title: 'hola mundo!',
                 description: 'hola mundooooo!',
-                compled: (true)
+                isCompleted: (true)
             }
         )
     }
@@ -25,7 +27,7 @@ const TodoForm = () => {
             {
                 title: '',
                 description: '',
-                compled: (false)
+                isCompleted: (false)
             }
         )
     }
@@ -60,20 +62,19 @@ const TodoForm = () => {
                  {errors.description?.type === 'required' && <p role="alert"  style={{ color: 'tomato' }}>se requiere una Descripcion</p>}
             </div>
             <div>
-                <label htmlFor="compled"> Completado </label>
+                <label htmlFor="isCompleted"> Completado </label>
                 <input
                 type="checkbox" 
-                name="compled" 
-                id="compled" 
-                {...register('compled', {required: true})}    
+                name="isCompleted" 
+                id="isCompleted" 
+                {...register('isCompleted', {required: true})}    
                 />
-                 {errors.compled?.type === 'required' && <p role="alert"  style={{ color: 'tomato' }}>se requiere este campo </p>}
+                 {errors.isCompleted?.type === 'required' && <p role="alert"  style={{ color: 'tomato' }}>se requiere este campo </p>}
             </div>
             <button type="submit"> Enviar Formulario </button>
-        </form>
-
-        <button onClick={fillForm}> llenar Formulario</button>.
         {/* <button  onClick={emptyForm}> Borrar Formulario </button> */}
+        </form>
+        <button onClick={fillForm}> llenar Formulario</button>.
         </div>
     );
 };

@@ -13,14 +13,25 @@ const RepasoForm = () => {
     const handleSubmit = e => {
         const data = {
             name : valueName,
-            age : number(valueAge),
+            age : Number(valueAge),
             email : valueEmail,
             terms : isTermsAccepted,
             genre : genreValue
 
         }
         console.log(data);
+        reset()
         e.preventDefault()
+    }
+
+    const reset = () => {
+        setValueName('')
+        setValueAge('')
+        setValueEmail('')
+        setIsTermsAccepted(false)
+        setGenreValue('')
+
+        alert('Formulario enviado')
     }
 
     return (

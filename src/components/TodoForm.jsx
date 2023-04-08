@@ -68,7 +68,10 @@ const ToDoForm = () => {
       </div>
       <div>
         <label htmlFor="isCompleted">Completado</label>
-        <input type="checkbox" id="isCompleted" {...register("isCompleted")} />
+        <input type="checkbox" id="isCompleted" {...register("isCompleted", { required: true })} />
+        {errors.isCompleted?.type === "required" && (
+          <p role="alert">Debes Completar Este Campo</p>
+        )}
       </div>
       <div>
         <button type="button" onClick={handleFillForm}>

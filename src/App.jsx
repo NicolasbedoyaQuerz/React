@@ -1,5 +1,6 @@
 import "./App.css";
 import Form from "./components/Form";
+import TodoForm from "./components/TodoForm";
 
 
 function App() {  
@@ -7,7 +8,8 @@ function App() {
   
   return (
     <div className="App">
-      <Form/>
+      <TodoForm/>
+      {/* <Form/> */}
     </div>
   );
 }

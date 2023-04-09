@@ -5,6 +5,7 @@ import Proyectos from "./pages/Proyectos";
 import Tecnologias from "./pages/Tecnologias";
 import FooterComponent from "./components/FooterComponent";
 import { Link } from "react-router-dom";
+import ProyectosCreados from "./pages/ProyectosCreados";
 
 function App() {  
   
@@ -35,6 +36,10 @@ function App() {
         <Route
         path="/Tecnologias"
         element = {<Tecnologias/>}
+        />
+        <Route 
+        path = '/Proyectos/:name'
+        element = {<ProyectosCreados/>}
         />
       </Routes>
       <FooterComponent/>

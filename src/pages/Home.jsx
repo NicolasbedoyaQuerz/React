@@ -8,6 +8,15 @@ const Home = () => {
     
     const handleSubmit = (event) => {
         event.preventDefault()
+        if(password === '1234'){
+            navigate('/Proyectos')
+        }else{
+            alert('contraseña incorrecta')
+        }
+    }
+
+    const handleChange = (event) =>{
+        setPassword(event.target.value)
     }
 
     return (
@@ -18,6 +27,8 @@ const Home = () => {
           type="password"
           id="password"
           name="password"
+          value={password}
+          onChange={handleChange}
         />
          </form>
        

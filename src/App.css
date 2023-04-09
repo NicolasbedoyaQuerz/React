@@ -1,0 +1,12 @@
+.footer{
+    padding: 2rem;
+    text-align: center;
+    background-color: darkcyan;
+}
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

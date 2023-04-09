@@ -22,8 +22,6 @@ const TodoForm = ({createUser, selectedUser, updateUser}) => {
         }
     }
 
-
-
     const emptyForm = () => {
         reset(
             {

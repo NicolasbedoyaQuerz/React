@@ -19,6 +19,7 @@ function App() {
     id: 2
   }])
 
+  const [ userUpdate, setUserUpdate] = useState(null)
 
   const addUser = (userData) => {
     setUsers ([...users, userData])
@@ -32,14 +33,33 @@ function App() {
     setUsers(filteredUsers)
   }
 
+  const selectUser = (userData) => {
+    setUserUpdate(userData)
+  }
+
+  const userActualization = (userData) => {
+    console.log(userData);
+
+    const index = users.findIndex(user => user.id === userData.id)
+
+    users[index] = userData
+
+    setUsers([...users])
+
+    setUserUpdate(null)
+  }
+
   return (
     <div className="App">
       <TodoForm
       createUser={(data) => addUser(data)}
+      selectedUser = {userUpdate}
+      updateUser = { (data) => userActualization(data) }
       />
       <UsersList
       usersData = {users}
       deleteUserAction = { id => deleteUser(id)}
+      selectUser = { (user) => selectUser(user)}
       />
       {/* <Form/> */}
     </div>

@@ -1,15 +1,27 @@
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
-const TodoForm = ({createUser}) => {
+const TodoForm = ({createUser, selectedUser, updateUser}) => {
 
     const {register, formState:{errors}, reset, handleSubmit} = useForm()
 
-    const submit = (data) => {
-        data.id = Date.now()
-        // console.log(data);
+    useEffect(() => {
+        if(selectedUser){
+            reset(selectedUser)
+        }else{
+            emptyForm()
+        }
+    }, [selectedUser])
 
-        createUser(data)
-        emptyForm()
+    const submit = (data) => {
+        if(selectedUser){
+            updateUser(data)
+        }else{
+            data.id = Date.now()
+            // console.log(data);
+            createUser(data)
+            emptyForm()
+        }
     }
 
     const fillForm = () => {

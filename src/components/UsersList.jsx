@@ -1,6 +1,6 @@
 
 
-const UsersList = ({usersData, deleteUserAction}) => {
+const UsersList = ({usersData, deleteUserAction, selectUser}) => {
     return (
         <ul>
             {
@@ -10,6 +10,7 @@ const UsersList = ({usersData, deleteUserAction}) => {
                     <h4><span> Descripcion: </span> {user.description} </h4>
                     <h4><span> Completado: </span> {user.isCompleted ? 'true' : 'false'} </h4>
                     <button onClick={() => deleteUserAction(user.id)}>Eliminar</button>
+                    <button onClick={() => selectUser(user)}>Editar</button>
                 </li>
                 ) )
             }

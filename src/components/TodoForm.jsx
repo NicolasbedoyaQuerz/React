@@ -17,22 +17,12 @@ const TodoForm = ({createUser, selectedUser, updateUser}) => {
         if(selectedUser){
             updateUser(data)
         }else{
-            data.id = Date.now()
-            // console.log(data);
             createUser(data)
             emptyForm()
         }
     }
 
-    const fillForm = () => {
-        reset(
-            {
-                title: 'hola mundo!',
-                description: 'hola mundooooo!',
-                isCompleted: (true)
-            }
-        )
-    }
+
 
     const emptyForm = () => {
         reset(
@@ -86,7 +76,6 @@ const TodoForm = ({createUser, selectedUser, updateUser}) => {
             <button type="submit"> Enviar Formulario </button>
         {/* <button  onClick={emptyForm}> Borrar Formulario </button> */}
         </form>
-        <button onClick={fillForm}> llenar Formulario</button>.
         </div>
     );
 };

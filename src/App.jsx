@@ -1,36 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import TodoForm from "./components/TodoForm";
 import UsersList from "./components/UsersList";
+import axios from "axios";
 
 function App() {
 
-  const [ users, setUsers] = useState([{
-    title: "Estudiar React",
-    description: "Estudiar useState y useEffect",
-    isCompleted: 'false',
-    id: 1
-  },
-  {
-    title: "Entregable 3",
-    description: "Completar el entregable 3 y subirlo al classcenter",
-    isCompleted: 'false',
-    id: 2
-  }])
-
+  const [ users, setUsers] = useState([])
   const [ userUpdate, setUserUpdate] = useState(null)
 
+
+  useEffect(() => {
+   getData()
+  }, [])
+
+  const getData = () => {
+    axios
+    .get('https://todos-crud.academlo.tech/todos/') 
+    .then(resp => setUsers(resp.data))
+    .catch(error => console.error(error))
+  }
+
+
+
   const addUser = (userData) => {
-    setUsers ([...users, userData])
+    axios 
+      .post('https://todos-crud.academlo.tech/todos/', userData)
+      .then( () => getData())
+      .catch( error => console.error(error))
   }
 
   const deleteUser = (idUser) => {
-    alert(idUser)
-
-    const filteredUsers = users.filter( user => user.id !== idUser )
-
-    setUsers(filteredUsers)
+    axios 
+    .delete(`https://todos-crud.academlo.tech/todos/${idUser}/`)
+    .then( () => getData())
+    .catch( error => console.error(error))
   }
 
   const selectUser = (userData) => {
@@ -38,15 +43,15 @@ function App() {
   }
 
   const userActualization = (userData) => {
-    console.log(userData);
+    axios 
+    .put(`https://todos-crud.academlo.tech/todos/${userData.id}/`, userData)
+    .then( () => { 
+      getData()
+      setUserUpdate(null)
+    })
 
-    const index = users.findIndex(user => user.id === userData.id)
-
-    users[index] = userData
-
-    setUsers([...users])
-
-    setUserUpdate(null)
+    .catch( error => console.error(error))
+   
   }
 
   return (

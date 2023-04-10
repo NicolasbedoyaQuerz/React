@@ -9,7 +9,7 @@ const Home = () => {
     }
     return (
         <div>
-            <button onClick={redirect}>ir a Lista de pokemons</button>
+            <button onClick={redirect}>ir a Lista de rick and morty</button>
         </div>
     );
 };

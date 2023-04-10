@@ -3,6 +3,7 @@ import axios from "axios";
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Home from "./pages/Home";
 import Characters from "./pages/Characters";
+import IdCharacter from "./pages/IdCharacter";
 
 function App() {  
   
@@ -17,6 +18,10 @@ function App() {
           <Route
           path="/Characters"
           element= {<Characters/>}
+          />
+           <Route
+          path="/Characters/:id"
+          element= {<IdCharacter/>}
           />
         </Routes>
     </div>

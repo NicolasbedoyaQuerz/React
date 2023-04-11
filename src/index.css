@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 1rem;
+}
+.form-container {
+    padding: 1rem;
+    border: 1px solid gray;
+}
+
+.loader {
+    background-color: rgb(224, 255, 255, 0.8);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}

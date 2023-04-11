@@ -25,7 +25,7 @@ const IdCharacter = () => {
 
 
     return (
-        <div>
+        <div className="view-container">
             <h1>Detalle del Personaje</h1>
             <img src={data.image} />
             <p> { data?.name } </p>

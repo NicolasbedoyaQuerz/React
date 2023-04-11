@@ -1,0 +1,58 @@
+*{
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+ 
+
+.pokemon-name{
+
+    text-transform: capitalize;
+
+}
+
+ 
+
+.general-container{
+
+    display: flex;
+
+    min-height: 100vh;
+
+}
+
+ 
+
+.aside{
+
+    background-color: darkcyan;
+
+    flex-grow: 1;
+
+}
+
+.footer{
+
+    background-color: darkcyan;
+}
+
+.view-container{
+
+    flex-grow: 2   ;
+
+    text-align: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+}
